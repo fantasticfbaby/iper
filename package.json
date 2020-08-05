@@ -1,10 +1,36 @@
 {
-  "name": "electron-quick-start",
+  "name": "iper",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "a tool to get local ip address",
   "main": "main.js",
+  "author": "teefing",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "org.teefing.iper",
+    "dmg": {
+      "icon": "build/icon.icns",
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.icns"
+    }
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -14,9 +40,9 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.0.1"
+    "electron": "^8.0.1",
+    "electron-builder": "^22.3.2"
   }
 }
